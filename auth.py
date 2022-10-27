@@ -6,13 +6,13 @@ import requests
 import json
 
 SIGNATURE = uuid.uuid4().hex
-COOKIE = 'opsv.cn'
-KEY = ["id"]
+COOKIE = 'opsv.cn'   #随机字符串
+ID = ["zhangsan","lisi"] #账号
 sessions = {}
 
 app = Flask(__name__)
 
-#  sso验证账号
+#  sso验证账号，可替换为其他认证（ldap，自定义认证）。
 def check_login(username, password):
   if username and password:
     import time
@@ -90,7 +90,7 @@ def getsms():
   if request.method == 'POST':
     username = request.form['username']
     password = request.form['password']
-    if username not in KEY:
+    if username not in IDS:
       return "您没有权限登录。请联系【管理员】。"
     if check_login(username, password):
       r = requests.post('http://manage.opsv.cn/manage/inner/sendSms', data={
