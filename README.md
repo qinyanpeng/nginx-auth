@@ -5,6 +5,7 @@
 - 登录验证页面和访问站点完全独立。
 - 用户名密码+短信认证。
 
-*nginx.conf*  nginx的配置。
-
-*auth.py*  登录页面。启动命令`python3 app.py`
+### 使用
+*nginx.conf*  nginx配置文件。
+*auth.py*  后台登录。启动命令`python3 app.py`
+*template* 前端页面

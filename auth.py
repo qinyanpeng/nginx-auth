@@ -12,7 +12,7 @@ sessions = {}
 
 app = Flask(__name__)
 
-#  sso验证账号，可替换为其他认证（ldap，自定义认证）。
+#  sso验证账号，可替换为其他认证（ldap，自定义认证）。返回true则认证成功。
 def check_login(username, password):
   if username and password:
     import time
@@ -20,7 +20,7 @@ def check_login(username, password):
     import hashlib
     import requests
     authTimestamp = str(int(time.time()))
-    uuid = "opsv.cn"
+    uuid = "www.opsv.cn"
     authNonce = getRandomSet(10)
     appId = "sd3fafw23240e4872e3270af4k70ea"
     authSignature = authTimestamp + authNonce + appId + uuid + "Vq6Z9ZKc3g05FU2d"
@@ -110,7 +110,7 @@ def getsms():
 
 
 def check_sms(username,sms_code):
-    r = requests.post('http://manage.opsv.cn/manage/inner/ckeSms', data={
+    r = requests.post('http://manage.opsv.cn/checkSms', data={
                         'userName': username,'code':sms_code}, headers={'Content-Type': 'application/x-www-form-urlencoded'})
 
     if r.status_code == 200 :
