@@ -90,7 +90,7 @@ def getsms():
   if request.method == 'POST':
     username = request.form['username']
     password = request.form['password']
-    if username not in IDS:
+    if username not in ID:
       return "您没有权限登录。请联系【管理员】。"
     if check_login(username, password):
       r = requests.post('http://manage.opsv.cn/manage/inner/sendSms', data={
@@ -110,7 +110,7 @@ def getsms():
 
 
 def check_sms(username,sms_code):
-    r = requests.post('http://manage.opsv.ccn/manage/inner/ckeSms', data={
+    r = requests.post('http://manage.opsv.cn/manage/inner/ckeSms', data={
                         'userName': username,'code':sms_code}, headers={'Content-Type': 'application/x-www-form-urlencoded'})
 
     if r.status_code == 200 :
