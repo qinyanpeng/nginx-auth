@@ -6,6 +6,6 @@
 - 用户名密码+短信认证。
 
 ### 使用
-*nginx.conf*  nginx配置文件。
-*auth.py*  后台登录。启动命令`python3 app.py`
-*template* 前端页面
+- *nginx.conf*  nginx配置文件。
+- *auth.py*  后台登录。启动命令`python3 app.py`
+- *template* 前端页面
