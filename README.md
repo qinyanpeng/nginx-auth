@@ -1,9 +1,12 @@
 # nginx-auth
-### 网关nginx层的页面登录认证
+在nginx层实现简单的登录认证。
+
+### 网关nginx层的认证登录页面
 
 - nginx的auth_request模块加flask实现。
-- 登录验证页面和访问站点完全独立。
-- 用户名密码+短信认证。
+- 用户名密码
+- 短信认证。
+- 可适配各种域认证
 
 ### 使用
 - *nginx.conf*  nginx配置文件。
