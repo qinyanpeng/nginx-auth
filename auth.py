@@ -6,7 +6,7 @@ import requests
 import json
 
 SIGNATURE = uuid.uuid4().hex
-COOKIE = 'opsv.cn'   #随机字符串
+COOKIE = 'domin.cn'   #随机字符串
 ID = ["zhangsan","lisi"] #账号
 sessions = {}
 
@@ -20,7 +20,7 @@ def check_login(username, password):
     import hashlib
     import requests
     authTimestamp = str(int(time.time()))
-    uuid = "www.opsv.cn"
+    uuid = "www.domain.cn"
     authNonce = getRandomSet(10)
     appId = "sd3fafw23240e4872e3270af4k70ea"
     authSignature = authTimestamp + authNonce + appId + uuid + "Vq6Z9ZKc3g05FU2d"
@@ -29,7 +29,7 @@ def check_login(username, password):
     authSignature_md5 = hl.hexdigest()
     key = "authSignature=" + authSignature_md5 + "&uuid=" + uuid + "&authNonce=" + \
         authNonce + "&authTimestamp=" + authTimestamp + "&appId=" + appId
-    url = "http://sso.opsv.cn/user/login?" + key
+    url = "http://sso.domain.cn/user/login?" + key
     playload = {'userid': username, 'password': password}
     h = {"Content-type": "application/json"}
     r = requests.post(url, data=json.dumps(playload), headers=h)
@@ -93,7 +93,7 @@ def getsms():
     if username not in ID:
       return "您没有权限登录。请联系【管理员】。"
     if check_login(username, password):
-      r = requests.post('http://manage.opsv.cn/manage/inner/sendSms', data={
+      r = requests.post('http://manage.domain.cn/manage/inner/sendSms', data={
                         'userName': username}, headers={'Content-Type': 'application/x-www-form-urlencoded'})
       if r.status_code == 200 :
           data=json.loads(r.text)
@@ -110,7 +110,7 @@ def getsms():
 
 
 def check_sms(username,sms_code):
-    r = requests.post('http://manage.opsv.cn/checkSms', data={
+    r = requests.post('http://manage.domain.cn/checkSms', data={
                         'userName': username,'code':sms_code}, headers={'Content-Type': 'application/x-www-form-urlencoded'})
 
     if r.status_code == 200 :
