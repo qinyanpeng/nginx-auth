@@ -10,5 +10,5 @@
 
 ### 使用
 - *nginx.conf*  nginx配置文件。
-- *auth.py*  后台登录。启动命令`python3 app.py`
+- *auth.py*  后台登录。启动命令`python3 auth.py`
 - *template* 前端页面
